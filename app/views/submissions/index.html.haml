@@ -25,7 +25,7 @@
         - @submissions.each do |submission|
           %tr
             %td= submission.user.username
-            %td= submission.created_at
+            %td= format_datetime(submission.created_at.localtime)
             %td.center= link_to "Submitted", submission_path(submission)
             %td.center= submission.public ? "public" : "private"
             %td.center
