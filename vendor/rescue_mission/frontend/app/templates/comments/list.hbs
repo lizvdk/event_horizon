@@ -1,0 +1,14 @@
+<div class="comment-list">
+  {{#each}}
+    {{partial 'posts/list-item'}}
+  {{/each}}
+
+  {{#if session.isAuthenticated}}
+    <a class="add-comment button secondary tiny"
+      href="#" {{action 'addComment'}}>
+      <i class="fa fa-plus"></i> Comment
+    </a>
+  {{else}}
+    {{link-to 'Log in to post a comment' 'login'}}
+  {{/if}}
+</div>

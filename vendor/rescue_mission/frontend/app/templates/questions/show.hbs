@@ -1,0 +1,27 @@
+<h1 class="page-title">{{title}}</h1>
+
+{{#if canAssign}}
+  {{#user-select-menu action="assignUser" selectedUser=assignee store=store}}
+    <i class="fa fa-gear"></i>
+
+    {{#if assignee}}
+      <strong>{{assignee.username}}</strong> is assigned
+    {{else}}
+      <strong>Nobody</strong> is assigned
+    {{/if}}
+  {{/user-select-menu}}
+{{/if}}
+
+{{partial 'posts/list-item'}}
+
+<h2>Answers</h2>
+
+{{render 'answers.list' answers}}
+
+<h3>Your Answer</h3>
+
+{{#if session.isAuthenticated}}
+  {{render 'answers.new' answer}}
+{{else}}
+  {{link-to 'Log in to post an answer' 'login'}}
+{{/if}}
